@@ -61,6 +61,19 @@ int main () {
     switch (raca_jogador){
       case 1: 
             printf ("voce e um anao agora");
+       do{
+            printf ("\n 1. anao da colina (+1 de sabedoria); \n 2. anao da montanha (+2 de forca)");
+            printf ("\nDigite o numero referente a uma das sub racas ");
+            scanf ("%d",&sub_raca);
+            if (sub_raca == 1){
+               printf ("voce e um anao da colina ");
+            } else
+              if  (sub_raca == 2) {
+                printf ("voce e um anao da montanha");
+              } else {
+                printf ("/n digite novamente");
+              }
+          }while (sub_raca > 2 || sub_raca < 1);  
             break;
       case 2: 
             printf ("voce e um elfo agora");
@@ -94,15 +107,13 @@ int main () {
 
   if (raca_jogador == 1){
     do {
-    printf ("\n 1. anao da colina (+1 de sabedoria); \n 2. anao da montanha (+2 de forca)");
-    printf ("\nDigite o numero referente a uma das sub racas ");
-      scanf ("%d",&sub_raca);
+    
       switch (sub_raca){
         case 1: 
-        printf ("voce e um anao da colina ");
+       
         break;
         case 2: 
-        printf ("voce e um anao da montanha");
+        
         break;
         default:
         printf("\nDigite o numero correto");
