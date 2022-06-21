@@ -6,8 +6,6 @@
 #include <math.h>
 
 
-
-
 //Protótipos de função
 int calculoDeAtributos (void);
 
@@ -18,19 +16,18 @@ int main () {
   
   
   
-  //Define a "semente" para gerar um número aleatório
+//Define a "semente" para gerar um número aleatório
   srand(time(NULL));
   
 //cálculo básico de habilidades 
-    forca        = calculoDeAtributos();
+  forca        = calculoDeAtributos();
   destreza     = calculoDeAtributos();
   constituicao = calculoDeAtributos();
   inteligencia = calculoDeAtributos();
   sabedoria    = calculoDeAtributos();
   carisma      = calculoDeAtributos();
 
- 
-  
+
   printf ("\n\n forca = %d \n", forca);
   printf (" destreza = %d \n", destreza);
   printf (" constituicao = %d \n", constituicao);
@@ -39,59 +36,59 @@ int main () {
   printf (" carisma = %d \n", carisma);
 
 // calculo do modificador
-    modificador_forca = floor ((forca - 10)/2 );
-    printf ("\nmodificador de forca = (%d)", modificador_forca);
-    modificador_destreza = floor ((destreza - 10)/2 );
-    printf ("\nmodificador de destreza = (%d)", modificador_destreza);
-    modificador_constituicao = floor ((constituicao - 10)/2 );
-    printf ("\nmodificador de constituicao = (%d)", modificador_constituicao);
-    modificador_inteligencia = floor ((inteligencia - 10)/2 );
-    printf ("\nmodificador de inteligencia = (%d)", modificador_inteligencia);
-    modificador_sabedoria = floor ((sabedoria - 10)/2 );
-    printf ("\nmodificador de sabedoria = (%d)", modificador_sabedoria);
-    modificador_carisma = floor ((carisma - 10)/2 );
-    printf ("\nmodificador de carisma = (%d)\n", modificador_carisma);
+  modificador_forca = floor ((forca - 10)/2 );
+  printf ("\nmodificador de forca = (%d)", modificador_forca);
+  modificador_destreza = floor ((destreza - 10)/2 );
+  printf ("\nmodificador de destreza = (%d)", modificador_destreza);
+  modificador_constituicao = floor ((constituicao - 10)/2 );
+  printf ("\nmodificador de constituicao = (%d)", modificador_constituicao);
+  modificador_inteligencia = floor ((inteligencia - 10)/2 );
+  printf ("\nmodificador de inteligencia = (%d)", modificador_inteligencia);
+  modificador_sabedoria = floor ((sabedoria - 10)/2 );
+  printf ("\nmodificador de sabedoria = (%d)", modificador_sabedoria);
+  modificador_carisma = floor ((carisma - 10)/2 );
+  printf ("\nmodificador de carisma = (%d)\n", modificador_carisma);
 
 
 
   
   //escolha de classe
-do{ 
-  printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n 6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling\n");
-  printf ("Digite o numero referente a sua raca: \n");
-  scanf ("%d",&raca_jogador);
+  do{ 
+    printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n 6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling\n");
+    printf ("Digite o numero referente a sua raca: \n");
+    scanf ("%d",&raca_jogador);
  
-  switch (raca_jogador){
-    case 1: 
-    printf ("voce e um anao agora");
-    break;
-    case 2: 
-    printf ("voce e um elfo agora");
-    break;
-    case 3: 
-    printf ("voce e um halfling agora");
-    break;
-    case 4: 
-    printf ("voce e um humano agora");
-    break;
-    case 5: 
-    printf ("voce e um draconato agora");
-    break;
-    case 6: 
-    printf ("voce e um gnomo agora");
-    break;
-    case 7: 
-    printf ("voce e um meio-elfo agora");
-    break;
-    case 8: 
-    printf ("voce e um meio-orc agora");
-    break;
-    case 9: 
-    printf ("voce e um tiefling agora");
-    break;
-    default:
-    printf ("\nDigite o numero correto.");
-    break;
+    switch (raca_jogador){
+      case 1: 
+            printf ("voce e um anao agora");
+            break;
+      case 2: 
+            printf ("voce e um elfo agora");
+            break;
+      case 3: 
+            printf ("voce e um halfling agora");
+            break;
+      case 4: 
+           printf ("voce e um humano agora");
+           break;
+      case 5: 
+            printf ("voce e um draconato agora");
+            break;
+      case 6: 
+            printf ("voce e um gnomo agora");
+            break;
+      case 7: 
+            printf ("voce e um meio-elfo agora");
+            break;
+      case 8: 
+            printf ("voce e um meio-orc agora");
+            break;
+      case 9: 
+            printf ("voce e um tiefling agora");
+            break;
+      default:
+            printf ("\nDigite o numero correto.");
+            break;
   }
    } while (raca_jogador > 9 || raca_jogador < 1);
 
