@@ -127,61 +127,7 @@ int main () {
   
   return 0;  
   } //end main
-
-//Funções Auxiliares
-/*int calculoDeAtributos () {
-  int hab1, hab2, hab3, hab4, hab_t, tmp;
   
-  hab1 = (rand() % 6 + 1);
-  hab2 = (rand() % 6 + 1);
-  hab3 = (rand() % 6 + 1);
-  hab4 = (rand() % 6 + 1);
-   
-    if (hab1 < hab4) {
-        tmp = hab4;
-        hab4 = hab1;
-        hab1 = tmp;
-    }
-  
-    if (hab1 < hab3) {
-        tmp = hab3;
-        hab3 = hab1;
-        hab1 = tmp;
-    }
-  
-    if (hab1 < hab2) {
-        tmp = hab2;
-        hab2 = hab1;
-        hab1 = tmp;
-    }
-    if (hab2 < hab4) {
-        tmp = hab4;
-        hab4 = hab2;
-        hab2 = tmp;
-    }
-  
-    if (hab2 < hab3) {
-        tmp = hab3;
-        hab3 = hab2;
-        hab2 = tmp;
-    }
-      
-
-    if (hab3 < hab4) {
-        tmp = hab4;
-        hab4 = hab3;
-        hab3 = tmp;
-    }
-
-  
-  printf("\n%d %d %d %d\n", hab1, hab2, hab3, hab4);  
-
-  
-  hab_t = hab1 + hab2 + hab3;
-  return hab_t;
-  
-} */
-
 // Simula um dado de 6 lados
 int calculoDeAtributos() {
     int habs[4]; //salva em cada índice 4 resultados de jogadas do dado
