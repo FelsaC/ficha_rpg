@@ -36,17 +36,17 @@ int main () {
   printf (" carisma = %d \n", carisma);
 
 // calculo do modificador
-  modificador_forca = floor ((forca - 10)/2 );
+  modificador_forca = floor ((forca - (double)10)/2 );
   printf ("\nmodificador de forca = (%d)", modificador_forca);
-  modificador_destreza = floor ((destreza - 10)/2 );
+  modificador_destreza = floor ((destreza - (double)10)/2 );
   printf ("\nmodificador de destreza = (%d)", modificador_destreza);
-  modificador_constituicao = floor ((constituicao - 10)/2 );
+  modificador_constituicao = floor ((constituicao - (double)10)/2 );
   printf ("\nmodificador de constituicao = (%d)", modificador_constituicao);
-  modificador_inteligencia = floor ((inteligencia - 10)/2 );
+  modificador_inteligencia = floor ((inteligencia - (double)10)/2 );
   printf ("\nmodificador de inteligencia = (%d)", modificador_inteligencia);
-  modificador_sabedoria = floor ((sabedoria - 10)/2 );
+  modificador_sabedoria = floor ((sabedoria - (double)10)/2 );
   printf ("\nmodificador de sabedoria = (%d)", modificador_sabedoria);
-  modificador_carisma = floor ((carisma - 10)/2 );
+  modificador_carisma = floor ((carisma - (double)10)/2 );
   printf ("\nmodificador de carisma = (%d)\n", modificador_carisma);
 
 
