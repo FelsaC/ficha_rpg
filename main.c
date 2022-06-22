@@ -77,18 +77,70 @@ int main () {
             break;
       case 2: 
             printf ("voce e um elfo agora");
+           do {
+            printf ("\n Escolha uma sub raca \n 1.Alto Elfo: +1 de inteligencia \n 2.Elfo da Floresta: +1 de Sabedoria, deslocamento passa a ser 10,5m \n 3.Elfo Negro: +1 de Carisma \n");
+            scanf ("%d", &sub_raca);
+              switch (sub_raca){
+                  case 1:
+                  printf ("voce e um alto elfo");
+                  break;
+
+                  case 2:
+                  printf ("voce e um elfo da floresta");
+                  break;
+
+                  case 3:
+                  printf("voce e um elfo negro");
+                  break;
+
+                  default:
+                  printf ("digite novamente");
+                  break;
+            };
+             }while (sub_raca > 3 || sub_raca < 1);
+
             break;
       case 3: 
             printf ("voce e um halfling agora");
+             do{
+            printf ("\n 1. Pes leves: +1 de carisma; \n 2.Robusto: +1 de constituiçao");
+            printf ("\nDigite o numero referente a um das sub racas ");
+            scanf ("%d",&sub_raca);
+            if (sub_raca == 1){
+               printf ("voce e um halfling pes leves ");
+            } else
+              if  (sub_raca == 2) {
+                printf ("voce e um halfling robusto");
+              } else {
+                printf ("/n digite novamente");
+              }
+          }while (sub_raca > 2 || sub_raca < 1);  
+            
             break;
       case 4: 
            printf ("voce e um humano agora");
+
+
            break;
       case 5: 
             printf ("voce e um draconato agora");
             break;
       case 6: 
             printf ("voce e um gnomo agora");
+            
+          do{
+            printf ("\n 1. Gnomo da floresta ; \n 2. (subraca2)");
+            printf ("\nDigite o numero referente a um das sub racas ");
+            scanf ("%d",&sub_raca);
+            if (sub_raca == 1){
+               printf ("voce e um (1) ");
+            } else
+              if  (sub_raca == 2) {
+                printf ("voce e um (2) ");
+              } else {
+                printf ("/n digite novamente");
+              }
+          }while (sub_raca > 2 || sub_raca < 1);
             break;
       case 7: 
             printf ("voce e um meio-elfo agora");
@@ -145,7 +197,7 @@ int calculoDeAtributos() {
     
     printf("\n");
     //end debug
-    
+
     for (int i = 0; i < 4; i++) {
         hab_t += habs[i];        
         if( habs[i] < min) {
