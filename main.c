@@ -14,8 +14,8 @@
 #define carisma        5
 
 //Variáveis Globais
-int atributo[5],
-    modificador[5];
+int atributo[6],
+    modificador[6];
 
 //Protótipos de função
 int calculoDeAtributos (void);
