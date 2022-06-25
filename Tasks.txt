@@ -26,4 +26,9 @@ Outros {
 	se a classe for utilizar magia: 31:40
 }
 
+Fora do vídeo {
+	Desing da tela de inicio;
+	Desing do output.
+}
+
  
