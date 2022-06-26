@@ -9,13 +9,14 @@ Relacionadas as Raça {
 
 
 Relacionadas as Classes {
+	escolha de classe. DONE
 	testes de resistenca: 9:47 - 11:48
 	perícias: 11:48 - 14:44 
 	proficiencias: 21:50 - 22:31
 	Habilidades: 22:31 - 24:41
 	equipamentos: 24:41 - 26:04
-	pontos de vida: 27:07 - 27:51
-	dados de vida: 28:07 - 29:00
+	pontos de vida: 27:07 - 27:51 DONE
+	dados de vida: 28:07 - 29:00 
 }
 
 Outros {
