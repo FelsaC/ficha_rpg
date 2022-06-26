@@ -250,9 +250,10 @@ void escolhaClasse() {
         system("cls"); //limpa a tela. No linux system("clear");
         
         if(classe_jogador < 0 || classe_jogador > 13) {
-        printf("\nOpcao invalida! Pressione enter para tentar novamente");
-        fflush(stdin); //limpa buffer do teclado. Necessaria para que o getchar() funcione corretamente.
-        getchar(); //limpa a tela.
+          printf("\nOpcao invalida! Pressione enter para tentar novamente");
+          fflush(stdin); //limpa buffer do teclado. Necessaria para que o getchar() funcione corretamente.
+          getchar(); 
+          system("cls");//limpa a tela.
         }
       } 
     } 
