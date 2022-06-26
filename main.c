@@ -6,6 +6,7 @@
 #include <math.h>
 
 //Macros
+//macros para atributos
 #define forca          0
 #define destreza       1 
 #define constituicao   2  
@@ -13,12 +14,30 @@
 #define sabedoria      4 
 #define carisma        5
 
+//macros para classes
+#define barbaro      1
+#define bardo        2
+#define bruxo        3
+#define clerigo      4
+#define druida       5
+#define feiticeiro   6
+#define guerreiro    7
+#define ladino       8
+#define mago         9
+#define monge        10
+#define paladino     11
+#define patrulheiro  12
+
 //Variáveis Globais
 int atributo[6],
     modificador[6];
 
+int option,
+    classe_jogador,
+    pontos_de_vida;
 //Protótipos de função
 int calculoDeAtributos (void);
+void escolhaClasse(void);
 
 //Função Principal
 int main () {
@@ -118,8 +137,12 @@ int main () {
 
     
   
-
-  
+   escolhaClasse(); 
+   //init debug
+   printf("numero da classe: %d \n", classe_jogador);
+   printf("pontos de vida: %d \n", pontos_de_vida);
+   //end debug
+   
   return 0;  
   } //end main
 
@@ -205,4 +228,73 @@ int calculoDeAtributos() {
     hab_t -= min;
 
     return hab_t;
+}
+
+void escolhaClasse() {
+    do {
+        printf("\nCLASSES de D&D");
+        printf("\n1.Barbaro \n2.Bardo \n3.Bruxo \n4.Clerigo \n5.Druida \n6.Feiticeiro");
+        printf("\n7.Guerreiro \n8.Ladino \n9.Mago \n10.Monge \n11.Paladio \n12.Patrulheito");
+        printf("\nEscolha a sua classe de acordo com numero respectivo: ");
+        scanf("%d", &option);
+        system("cls"); //limpa a tela. No linux system("clear");
+
+        switch (option) {
+            case barbaro:
+                pontos_de_vida = 12 + modificador[constituicao];                 
+                break;
+
+            case bardo:
+                pontos_de_vida = 8 + modificador[constituicao];
+                break;
+            
+            case bruxo:
+                pontos_de_vida = 8 + modificador[constituicao]; 
+                break;
+
+            case clerigo:
+                pontos_de_vida = 8 + modificador[constituicao];
+                break;
+            
+            case druida:
+                pontos_de_vida = 8 + modificador[constituicao];
+                break;
+            
+            case feiticeiro:
+                pontos_de_vida = 6 + modificador[constituicao];
+                break;
+                
+            case guerreiro:
+                pontos_de_vida = 10 + modificador[constituicao];
+                break;
+            
+            case ladino:
+                pontos_de_vida = 8 + modificador[constituicao];
+                break;
+
+            case mago:
+                pontos_de_vida = 6 + modificador[constituicao];
+                break;
+
+            case monge:
+                pontos_de_vida = 8 + modificador[constituicao];
+                break;
+
+            case paladino: 
+                pontos_de_vida = 10 + modificador[constituicao];
+                break;
+
+            case patrulheiro:
+                pontos_de_vida = 10 + modificador[constituicao];
+                break;
+
+            default:
+                printf("\nOpcao invalida! Pressione enter para tentar novamente");
+                fflush(stdin);
+                getchar();
+            break;
+        }
+    } while (option < 0 || option > 13);
+
+    classe_jogador = option;  
 }
