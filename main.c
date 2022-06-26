@@ -142,7 +142,7 @@ int main () {
    printf("numero da classe: %d \n", classe_jogador);
    printf("pontos de vida: %d \n", pontos_de_vida);
    //end debug
-   
+
   return 0;  
   } //end main
 
@@ -232,10 +232,10 @@ int calculoDeAtributos() {
 
 void escolhaClasse() {
     do {
-        printf("\nCLASSES de D&D");
+        printf("\n\nCLASSES de D&D\n");
         printf("\n1.Barbaro \n2.Bardo \n3.Bruxo \n4.Clerigo \n5.Druida \n6.Feiticeiro");
         printf("\n7.Guerreiro \n8.Ladino \n9.Mago \n10.Monge \n11.Paladio \n12.Patrulheito");
-        printf("\nEscolha a sua classe de acordo com numero respectivo: ");
+        printf("\n\nEscolha a sua classe de acordo com numero respectivo: ");
         scanf("%d", &option);
         system("cls"); //limpa a tela. No linux system("clear");
 
