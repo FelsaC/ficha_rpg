@@ -30,14 +30,15 @@
 
 //Variáveis Globais
 int atributo[6],
-    modificador[6];
+    modificador[6],
+    teste_de_resistencia[6];
 
-int option,
-    classe_jogador,
+int classe_jogador = 0,
     pontos_de_vida;
 //Protótipos de função
 int calculoDeAtributos (void);
 void escolhaClasse(void);
+void calculaPontosDeVida(void);
 
 //Função Principal
 int main () {
@@ -54,7 +55,7 @@ int main () {
   atributo[sabedoria]    = calculoDeAtributos();
   atributo[carisma]      = calculoDeAtributos();
 
-
+  
   printf ("\n\n forca = %d \n",    atributo[forca]);
   printf (" destreza = %d \n",     atributo[destreza]);
   printf (" constituicao = %d \n", atributo[constituicao]);
@@ -77,6 +78,14 @@ int main () {
   printf ("\nmodificador de sabedoria = (%d)",    modificador[sabedoria]);
   printf ("\nmodificador de carisma = (%d)\n",    modificador[carisma]);
   
+  //Inicializacao do teste resistencia
+  teste_de_resistencia[forca]        = modificador[forca];
+  teste_de_resistencia[destreza]     = modificador[destreza];
+  teste_de_resistencia[constituicao] = modificador[constituicao];
+  teste_de_resistencia[inteligencia] = modificador[inteligencia];
+  teste_de_resistencia[sabedoria]    = modificador[sabedoria];
+  teste_de_resistencia[carisma]      = modificador[carisma];
+
   //escolha de classe
   do{ 
     printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n 6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling\n");
@@ -137,7 +146,8 @@ int main () {
 
     
   
-   escolhaClasse(); 
+   escolhaClasse();
+   calculaPontosDeVida(); 
    //init debug
    printf("numero da classe: %d \n", classe_jogador);
    printf("pontos de vida: %d \n", pontos_de_vida);
@@ -231,70 +241,47 @@ int calculoDeAtributos() {
 }
 
 void escolhaClasse() {
-    do {
+    while (classe_jogador <= 0 || classe_jogador > 13) {
         printf("\n\nCLASSES de D&D\n");
         printf("\n1.Barbaro \n2.Bardo \n3.Bruxo \n4.Clerigo \n5.Druida \n6.Feiticeiro");
         printf("\n7.Guerreiro \n8.Ladino \n9.Mago \n10.Monge \n11.Paladio \n12.Patrulheito");
         printf("\n\nEscolha a sua classe de acordo com numero respectivo: ");
-        scanf("%d", &option);
+        scanf("%d", &classe_jogador);
         system("cls"); //limpa a tela. No linux system("clear");
-
-        switch (option) {
-            case barbaro:
-                pontos_de_vida = 12 + modificador[constituicao];                 
-                break;
-
-            case bardo:
-                pontos_de_vida = 8 + modificador[constituicao];
-                break;
-            
-            case bruxo:
-                pontos_de_vida = 8 + modificador[constituicao]; 
-                break;
-
-            case clerigo:
-                pontos_de_vida = 8 + modificador[constituicao];
-                break;
-            
-            case druida:
-                pontos_de_vida = 8 + modificador[constituicao];
-                break;
-            
-            case feiticeiro:
-                pontos_de_vida = 6 + modificador[constituicao];
-                break;
-                
-            case guerreiro:
-                pontos_de_vida = 10 + modificador[constituicao];
-                break;
-            
-            case ladino:
-                pontos_de_vida = 8 + modificador[constituicao];
-                break;
-
-            case mago:
-                pontos_de_vida = 6 + modificador[constituicao];
-                break;
-
-            case monge:
-                pontos_de_vida = 8 + modificador[constituicao];
-                break;
-
-            case paladino: 
-                pontos_de_vida = 10 + modificador[constituicao];
-                break;
-
-            case patrulheiro:
-                pontos_de_vida = 10 + modificador[constituicao];
-                break;
-
-            default:
-                printf("\nOpcao invalida! Pressione enter para tentar novamente");
-                fflush(stdin);
-                getchar();
-            break;
+        
+        if(classe_jogador < 0 || classe_jogador > 13) {
+        printf("\nOpcao invalida! Pressione enter para tentar novamente");
+        fflush(stdin); //limpa buffer do teclado. Necessaria para que o getchar() funcione corretamente.
+        getchar(); //limpa a tela.
         }
-    } while (option < 0 || option > 13);
+      } 
+    } 
 
-    classe_jogador = option;  
-}
+void calculaPontosDeVida() {
+  switch (classe_jogador) {
+       case barbaro:
+            pontos_de_vida = 12 + modificador[constituicao];                 
+            break;
+
+       case bardo:
+       case bruxo:
+       case clerigo:
+       case druida:
+       case ladino:
+       case monge:
+            pontos_de_vida = 8 + modificador[constituicao];
+            break;
+           
+       case feiticeiro:
+       case mago:
+            pontos_de_vida = 6 + modificador[constituicao];
+            break;
+                
+       case guerreiro:
+       case paladino:
+       case patrulheiro:
+            pontos_de_vida = 10 + modificador[constituicao];
+            break;
+  }
+
+} 
