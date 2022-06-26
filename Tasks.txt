@@ -2,6 +2,7 @@ link do vídeo: https://www.youtube.com/watch?v=k1E-PQPOk3c
 
 Relacionadas as Raça {
 	modificadores de atributos: 6:49 - 8:25
+	influencia da raca nos atributos: 6:09 - 6:41
 	deslocamento: 8:25 - 8:58
 	idiomas: 8:58 - 9:22
 }
