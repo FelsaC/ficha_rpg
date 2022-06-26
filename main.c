@@ -5,52 +5,58 @@
 #include <string.h>
 #include <math.h>
 
+//Macros
+#define forca          0
+#define destreza       1 
+#define constituicao   2  
+#define inteligencia   3 
+#define sabedoria      4 
+#define carisma        5
+
+//Variáveis Globais
+int atributo[6],
+    modificador[6];
 
 //Protótipos de função
 int calculoDeAtributos (void);
 
 //Função Principal
 int main () {
-  int forca, destreza, constituicao, inteligencia, sabedoria, carisma, raca_jogador, sub_raca, modificador;
-  int modificador_forca, modificador_destreza, modificador_constituicao, modificador_inteligencia, modificador_sabedoria, modificador_carisma;
-  
-  
+  int raca_jogador, sub_raca;
   
 //Define a "semente" para gerar um número aleatório
   srand(time(NULL));
   
-//cálculo básico de habilidades 
-  forca        = calculoDeAtributos();
-  destreza     = calculoDeAtributos();
-  constituicao = calculoDeAtributos();
-  inteligencia = calculoDeAtributos();
-  sabedoria    = calculoDeAtributos();
-  carisma      = calculoDeAtributos();
+//cálculo básico de atributos 
+  atributo[forca]        = calculoDeAtributos();
+  atributo[destreza]     = calculoDeAtributos();
+  atributo[constituicao] = calculoDeAtributos();
+  atributo[inteligencia] = calculoDeAtributos();
+  atributo[sabedoria]    = calculoDeAtributos();
+  atributo[carisma]      = calculoDeAtributos();
 
 
-  printf ("\n\n forca = %d \n", forca);
-  printf (" destreza = %d \n", destreza);
-  printf (" constituicao = %d \n", constituicao);
-  printf (" intelifencia = %d \n", inteligencia);
-  printf (" sabedoria = %d \n", sabedoria);
-  printf (" carisma = %d \n", carisma);
+  printf ("\n\n forca = %d \n",    atributo[forca]);
+  printf (" destreza = %d \n",     atributo[destreza]);
+  printf (" constituicao = %d \n", atributo[constituicao]);
+  printf (" intelifencia = %d \n", atributo[inteligencia]);
+  printf (" sabedoria = %d \n",    atributo[sabedoria]);
+  printf (" carisma = %d \n",      atributo[carisma]);
 
 // calculo do modificador
-  modificador_forca = floor ((forca - (double)10)/2 );
-  printf ("\nmodificador de forca = (%d)", modificador_forca);
-  modificador_destreza = floor ((destreza - (double)10)/2 );
-  printf ("\nmodificador de destreza = (%d)", modificador_destreza);
-  modificador_constituicao = floor ((constituicao - (double)10)/2 );
-  printf ("\nmodificador de constituicao = (%d)", modificador_constituicao);
-  modificador_inteligencia = floor ((inteligencia - (double)10)/2 );
-  printf ("\nmodificador de inteligencia = (%d)", modificador_inteligencia);
-  modificador_sabedoria = floor ((sabedoria - (double)10)/2 );
-  printf ("\nmodificador de sabedoria = (%d)", modificador_sabedoria);
-  modificador_carisma = floor ((carisma - (double)10)/2 );
-  printf ("\nmodificador de carisma = (%d)\n", modificador_carisma);
-
-
-
+  modificador[forca]        = floor ((atributo[forca]        - (double)10)/2 );
+  modificador[destreza]     = floor ((atributo[destreza]     - (double)10)/2 );
+  modificador[constituicao] = floor ((atributo[constituicao] - (double)10)/2 );
+  modificador[inteligencia] = floor ((atributo[inteligencia] - (double)10)/2 );
+  modificador[sabedoria]    = floor ((atributo[sabedoria]    - (double)10)/2 );
+  modificador[carisma]      = floor ((atributo[carisma]      - (double)10)/2 );
+  
+  printf ("\nmodificador de forca = (%d)",        modificador[forca]);
+  printf ("\nmodificador de destreza = (%d)",     modificador[destreza]);
+  printf ("\nmodificador de constituicao = (%d)", modificador[constituicao]);
+  printf ("\nmodificador de inteligencia = (%d)", modificador[inteligencia]);
+  printf ("\nmodificador de sabedoria = (%d)",    modificador[sabedoria]);
+  printf ("\nmodificador de carisma = (%d)\n",    modificador[carisma]);
   
   //escolha de classe
   do{ 

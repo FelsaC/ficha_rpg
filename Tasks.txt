@@ -1,0 +1,36 @@
+link do vídeo: https://www.youtube.com/watch?v=k1E-PQPOk3c
+
+Relacionadas as Raça {
+	modificadores de atributos: 6:49 - 8:25
+	influencia da raca nos atributos: 6:09 - 6:41
+	deslocamento: 8:25 - 8:58
+	idiomas: 8:58 - 9:22
+}
+
+
+Relacionadas as Classes {
+	escolha de classe. DONE
+	testes de resistenca: 9:47 - 11:48
+	perícias: 11:48 - 14:44 
+	proficiencias: 21:50 - 22:31
+	Habilidades: 22:31 - 24:41
+	equipamentos: 24:41 - 26:04
+	pontos de vida: 27:07 - 27:51 DONE
+	dados de vida: 28:07 - 29:00 
+}
+
+Outros {
+	bonus de proficiencia: 9:22 - 9:47
+	antecedentes (tem muita coisa): 14:44 - 20:43
+	classe de armadura (depende de equipamentos): 26:04 - 26:32
+	iniciativa: 26:32 - 27:07   
+	bônus de ataque (depende de equipamentos): 29:13 - 30:47
+	se a classe for utilizar magia: 31:40
+}
+
+Fora do vídeo {
+	Desing da tela de inicio;
+	Desing do output.
+}
+
+ 
