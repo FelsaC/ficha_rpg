@@ -44,12 +44,12 @@ int main () {
   printf (" carisma = %d \n",      atributo[carisma]);
 
 // calculo do modificador
-  modificador[forca]        = floor ((atributo[forca] - (double)10)/2 );
-  modificador[destreza]     = floor ((atributo[destreza] - (double)10)/2 );
+  modificador[forca]        = floor ((atributo[forca]        - (double)10)/2 );
+  modificador[destreza]     = floor ((atributo[destreza]     - (double)10)/2 );
   modificador[constituicao] = floor ((atributo[constituicao] - (double)10)/2 );
   modificador[inteligencia] = floor ((atributo[inteligencia] - (double)10)/2 );
-  modificador[sabedoria]    = floor ((atributo[sabedoria] - (double)10)/2 );
-  modificador[carisma]      = floor ((atributo[carisma] - (double)10)/2 );
+  modificador[sabedoria]    = floor ((atributo[sabedoria]    - (double)10)/2 );
+  modificador[carisma]      = floor ((atributo[carisma]      - (double)10)/2 );
   
   printf ("\nmodificador de forca = (%d)",        modificador[forca]);
   printf ("\nmodificador de destreza = (%d)",     modificador[destreza]);
