@@ -241,20 +241,19 @@ int calculoDeAtributos() {
 }
 
 void escolhaClasse() {
-    while (classe_jogador <= 0 || classe_jogador > 13) {
+    while (classe_jogador <= 0 || classe_jogador > 12) {
         printf("\n\nCLASSES de D&D\n");
         printf("\n1.Barbaro \n2.Bardo \n3.Bruxo \n4.Clerigo \n5.Druida \n6.Feiticeiro");
         printf("\n7.Guerreiro \n8.Ladino \n9.Mago \n10.Monge \n11.Paladio \n12.Patrulheito");
         printf("\n\nEscolha a sua classe de acordo com numero respectivo: ");
         scanf("%d", &classe_jogador);
-        system("cls"); //limpa a tela. No linux system("clear");
         
-        if(classe_jogador < 0 || classe_jogador > 13) {
+        if(classe_jogador < 0 || classe_jogador > 12) {
           printf("\nOpcao invalida! Pressione enter para tentar novamente");
           fflush(stdin); //limpa buffer do teclado. Necessaria para que o getchar() funcione corretamente.
           getchar(); 
-          system("cls");//limpa a tela.
         }
+        system("cls"); //limpa a tela. No linux system("clear");
       } 
     } 
 
@@ -284,5 +283,4 @@ void calculaPontosDeVida() {
             pontos_de_vida = 10 + modificador[constituicao];
             break;
   }
-
 } 
