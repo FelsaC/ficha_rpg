@@ -20,7 +20,7 @@ int atributo[6],
 
 //Protótipos de função
 int calculoDeAtributos (void);
-void escolhaRaca (void);
+void escolha_raca (void);
 
 //Função Principal
 int main () {
@@ -60,7 +60,7 @@ int main () {
   printf ("\nmodificador de sabedoria = (%d)",    modificador[sabedoria]);
   printf ("\nmodificador de carisma = (%d)\n",    modificador[carisma]);
   
-  escolhaRaca ();
+  escolha_raca ();
  
     
   
@@ -99,7 +99,7 @@ int calculoDeAtributos() {
 
 //escolha de racas
 void escolha_raca () {
-  int atributo, clock , raca, sub_raca, raca_jogador;
+  int atributos, clock , raca, sub_raca, raca_jogador;
  do{ 
     printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n");
     printf ("6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling \n");
@@ -210,7 +210,8 @@ void escolha_raca () {
             //deslocamento 9m; 
            do{
             printf ("\n Escolha duas habilidades para adcionar mais 1 ponto: \n");
-                switch (atributo){
+            scanf ("%d",&atributos)
+                switch (atributos){
 
                   case 1:
                     atributo[forca] =                atributo[forca] + 1;
@@ -234,7 +235,7 @@ void escolha_raca () {
                   printf ("\n Digite novamente \n");
                 }
               clock++;
-            } while (atributo > 6 || atributo < 1 && clock != 2 );    
+            } while (atributos > 6 || atributos < 1 && clock != 2 );    
             break;
       case 8: //meio-orc 
             atributo[forca] = atributo[forca] + 2;
