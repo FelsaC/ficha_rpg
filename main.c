@@ -271,7 +271,7 @@ void escolhaRaca () {
             //deslocamento 9m; 
            do{
             printf ("\n Escolha duas habilidades para adcionar mais 1 ponto: \n");
-            scanf ("%d",&atributos)
+            scanf ("%d",&atributos);
                 switch (atributos){
 
                   case 1:
