@@ -42,42 +42,11 @@ void calculaPontosDeVida(void);
 
 //Função Principal
 int main () {
+  srand(time(NULL)); //Define a "semente" para gerar um número aleatório
+ 
   int raca_jogador, sub_raca;
-  
-//Define a "semente" para gerar um número aleatório
-  srand(time(NULL));
-  
-//cálculo básico de atributos 
-  atributo[forca]        = calculoDeAtributos();
-  atributo[destreza]     = calculoDeAtributos();
-  atributo[constituicao] = calculoDeAtributos();
-  atributo[inteligencia] = calculoDeAtributos();
-  atributo[sabedoria]    = calculoDeAtributos();
-  atributo[carisma]      = calculoDeAtributos();
-
-  
-  printf ("\n\n forca = %d \n",    atributo[forca]);
-  printf (" destreza = %d \n",     atributo[destreza]);
-  printf (" constituicao = %d \n", atributo[constituicao]);
-  printf (" intelifencia = %d \n", atributo[inteligencia]);
-  printf (" sabedoria = %d \n",    atributo[sabedoria]);
-  printf (" carisma = %d \n",      atributo[carisma]);
-
-// calculo do modificador
-  modificador[forca]        = floor ((atributo[forca]        - (double)10)/2 );
-  modificador[destreza]     = floor ((atributo[destreza]     - (double)10)/2 );
-  modificador[constituicao] = floor ((atributo[constituicao] - (double)10)/2 );
-  modificador[inteligencia] = floor ((atributo[inteligencia] - (double)10)/2 );
-  modificador[sabedoria]    = floor ((atributo[sabedoria]    - (double)10)/2 );
-  modificador[carisma]      = floor ((atributo[carisma]      - (double)10)/2 );
-  
-  printf ("\nmodificador de forca = (%d)",        modificador[forca]);
-  printf ("\nmodificador de destreza = (%d)",     modificador[destreza]);
-  printf ("\nmodificador de constituicao = (%d)", modificador[constituicao]);
-  printf ("\nmodificador de inteligencia = (%d)", modificador[inteligencia]);
-  printf ("\nmodificador de sabedoria = (%d)",    modificador[sabedoria]);
-  printf ("\nmodificador de carisma = (%d)\n",    modificador[carisma]);
-  
+  const char *atributos_nomes[] = {"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"}; 
+    
   //Inicializacao do teste resistencia
   teste_de_resistencia[forca]        = modificador[forca];
   teste_de_resistencia[destreza]     = modificador[destreza];
@@ -86,7 +55,31 @@ int main () {
   teste_de_resistencia[sabedoria]    = modificador[sabedoria];
   teste_de_resistencia[carisma]      = modificador[carisma];
 
-  //escolha de classe
+  //Inicializacao dos valores de atributo e modificadores respectivos
+    for(int i = 0; i < 6; i++){
+        atributo[i] = calculoDeAtributos(); // Calcula cada atributo
+        modificador[i] = floor ((atributo[i] - (double)10)/2 ); //Calcula cada modificador baseado nos atributos 
+        teste_de_resistencia[i] = modificador[i];
+    }
+    
+    //init debug
+    printf("\n");
+    
+    for(int i = 0; i < 6; i++){
+        printf("%s = %d \n", atributos_nomes[i] ,atributo[i]);
+    }
+
+    printf("\n");
+
+    for(int i = 0; i < 6; i++){
+        printf ("modificador de  %s = (%d)\n", atributos_nomes[i], modificador[i]);
+    }
+    
+    for(int i = 0; i < 6; i++){
+        printf("%s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
+    }
+    //end debug
+
   do{ 
     printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n 6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling\n");
     printf ("Digite o numero referente a sua raca: \n");
