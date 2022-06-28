@@ -72,65 +72,6 @@ int main () {
     }
     //end debug
 
-  do{ 
-    printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n 6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling\n");
-    printf ("Digite o numero referente a sua raca: \n");
-    scanf ("%d",&raca_jogador);
- 
-    switch (raca_jogador){
-      case 1: 
-            printf ("voce e um anao agora");
-            break;
-      case 2: 
-            printf ("voce e um elfo agora");
-            break;
-      case 3: 
-            printf ("voce e um halfling agora");
-            break;
-      case 4: 
-           printf ("voce e um humano agora");
-           break;
-      case 5: 
-            printf ("voce e um draconato agora");
-            break;
-      case 6: 
-            printf ("voce e um gnomo agora");
-            break;
-      case 7: 
-            printf ("voce e um meio-elfo agora");
-            break;
-      case 8: 
-            printf ("voce e um meio-orc agora");
-            break;
-      case 9: 
-            printf ("voce e um tiefling agora");
-            break;
-      default:
-            printf ("\nDigite o numero correto.");
-            break;
-  }
-   } while (raca_jogador > 9 || raca_jogador < 1);
-
-  if (raca_jogador == 1){
-    do {
-    printf ("\n 1. anao da colina (+1 de sabedoria); \n 2. anao da montanha (+2 de forca)");
-    printf ("\nDigite o numero referente a uma das sub racas ");
-      scanf ("%d",&sub_raca);
-      switch (sub_raca){
-        case 1: 
-        printf ("voce e um anao da colina ");
-        break;
-        case 2: 
-        printf ("voce e um anao da montanha");
-        break;
-        default:
-        printf("\nDigite o numero correto");
-      }
-      }while (sub_raca > 2 || sub_raca < 1);
-  }
-
-    
-  
    escolhaClasse();
    calculaPontosDeVida(); 
    //init debug
