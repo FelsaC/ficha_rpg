@@ -41,6 +41,7 @@ int calculoDeAtributos (void);
 void escolhaRaca (void);
 void escolhaClasse(void);
 void calculaPontosDeVida(void);
+void calculoTesteDeResistencia(void);
 
 //Função Principal
 int main () {
@@ -51,7 +52,7 @@ int main () {
     for(int i = 0; i < 6; i++){
         atributo[i] = calculoDeAtributos(); // Calcula cada atributo
         modificador[i] = floor ((atributo[i] - (double)10)/2 ); //Calcula cada modificador baseado nos atributos 
-        teste_de_resistencia[i] = modificador[i];
+        teste_de_resistencia[i] = modificador[i]; //Valores iniciais do teste de resistencia baseado modificador
     }
     
     //init debug
@@ -75,7 +76,11 @@ int main () {
    escolhaRaca ();
    escolhaClasse();
    calculaPontosDeVida(); 
+   calculoTesteDeResistencia();
    //init debug
+   for(int i = 0; i < 6; i++){
+        printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
+    }
    printf("numero da classe: %d \n", classe_jogador);
    printf("pontos de vida: %d \n", pontos_de_vida);
    //end debug
@@ -126,7 +131,7 @@ void escolhaClasse() {
           fflush(stdin); //limpa buffer do teclado. Necessaria para que o getchar() funcione corretamente.
           getchar(); 
         }
-        system("cls"); //limpa a tela. No linux system("clear");
+        //system("cls"); //limpa a tela. No linux system("clear");
       } 
     } 
 
@@ -313,4 +318,48 @@ void escolhaRaca () {
   }
    } while (raca_jogador > 9 || raca_jogador < 1);
 
+}
+
+void calculoTesteDeResistencia() {
+  switch (classe_jogador) {
+    case bruxo:
+    case clerigo:
+    case paladino:
+      teste_de_resistencia[sabedoria] += 2;
+      teste_de_resistencia[carisma] +=  2;
+      break;
+  
+    case barbaro:
+    case guerreiro:
+      teste_de_resistencia[forca] += 2;
+      teste_de_resistencia[constituicao] += 2; 
+      break;
+
+    case druida:
+    case mago:
+      teste_de_resistencia[inteligencia] += 2;
+      teste_de_resistencia[sabedoria] += 2;
+      break;
+
+    case monge:
+    case patrulheiro:
+      teste_de_resistencia[forca] += 2;
+      teste_de_resistencia[destreza] += 2;
+      break;
+
+    case bardo:
+      teste_de_resistencia[destreza] += 2;
+      teste_de_resistencia[carisma] += 2;
+      break;
+
+    case feiticeiro:
+      teste_de_resistencia[constituicao] += 2;
+      teste_de_resistencia[carisma] += 2;
+      break;
+    
+    case ladino:
+      teste_de_resistencia[destreza] += 2;
+      teste_de_resistencia[inteligencia] += 2;
+      break;
+  }
 }

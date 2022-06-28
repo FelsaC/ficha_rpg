@@ -10,7 +10,7 @@ Relacionadas as Raça {
 
 Relacionadas as Classes {
 	escolha de classe. DONE
-	testes de resistenca: 9:47 - 11:48
+	testes de resistenca: 9:47 - 11:48 DONE
 	perícias: 11:48 - 14:44 
 	proficiencias: 21:50 - 22:31
 	Habilidades: 22:31 - 24:41
