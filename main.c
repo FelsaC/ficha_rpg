@@ -47,14 +47,6 @@ int main () {
   int raca_jogador, sub_raca;
   const char *atributos_nomes[] = {"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"}; 
     
-  //Inicializacao do teste resistencia
-  teste_de_resistencia[forca]        = modificador[forca];
-  teste_de_resistencia[destreza]     = modificador[destreza];
-  teste_de_resistencia[constituicao] = modificador[constituicao];
-  teste_de_resistencia[inteligencia] = modificador[inteligencia];
-  teste_de_resistencia[sabedoria]    = modificador[sabedoria];
-  teste_de_resistencia[carisma]      = modificador[carisma];
-
   //Inicializacao dos valores de atributo e modificadores respectivos
     for(int i = 0; i < 6; i++){
         atributo[i] = calculoDeAtributos(); // Calcula cada atributo
@@ -76,7 +68,7 @@ int main () {
     }
     
     for(int i = 0; i < 6; i++){
-        printf("%s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
+        printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
     }
     //end debug
 
@@ -148,60 +140,6 @@ int main () {
 
   return 0;  
   } //end main
-
-//Funções Auxiliares
-/*int calculoDeAtributos () {
-  int hab1, hab2, hab3, hab4, hab_t, tmp;
-  
-  hab1 = (rand() % 6 + 1);
-  hab2 = (rand() % 6 + 1);
-  hab3 = (rand() % 6 + 1);
-  hab4 = (rand() % 6 + 1);
-   
-    if (hab1 < hab4) {
-        tmp = hab4;
-        hab4 = hab1;
-        hab1 = tmp;
-    }
-  
-    if (hab1 < hab3) {
-        tmp = hab3;
-        hab3 = hab1;
-        hab1 = tmp;
-    }
-  
-    if (hab1 < hab2) {
-        tmp = hab2;
-        hab2 = hab1;
-        hab1 = tmp;
-    }
-    if (hab2 < hab4) {
-        tmp = hab4;
-        hab4 = hab2;
-        hab2 = tmp;
-    }
-  
-    if (hab2 < hab3) {
-        tmp = hab3;
-        hab3 = hab2;
-        hab2 = tmp;
-    }
-      
-
-    if (hab3 < hab4) {
-        tmp = hab4;
-        hab4 = hab3;
-        hab3 = tmp;
-    }
-
-  
-  printf("\n%d %d %d %d\n", hab1, hab2, hab3, hab4);  
-
-  
-  hab_t = hab1 + hab2 + hab3;
-  return hab_t;
-  
-} */
 
 // Simula um dado de 6 lados
 int calculoDeAtributos() {
