@@ -1,0 +1,37 @@
+// 
+do{
+            printf ("\n 1. (subraca1); \n 2. (subraca2)");
+            printf ("\nDigite o numero referente a um das sub racas ");
+            scanf ("%d",&sub_raca);
+            if (sub_raca == 1){
+               printf ("voce e um (1) ");
+            } else
+              if  (sub_raca == 2) {
+                printf ("voce e um (2) ");
+              } else {
+                printf ("/n digite novamente");
+              }
+          }while (sub_raca > 2 || sub_raca < 1);
+          
+
+           do {
+            printf ("\n Escolha uma sub raca \n 1.(raca 1) \n 2.(raca 2) \n 3.(raca 3) \n");
+            scanf ("%d", &sub_raca);
+              switch (sub_raca){
+                  case 1:
+                  printf ("voce e um (1)");
+                  break;
+
+                  case 2:
+                  printf ("voce e um (2)");
+                  break;
+
+                  case 3:
+                  printf("voce e um (3)");
+                  break;
+
+                  default:
+                  printf ("digite novamente");
+                  break;
+            };
+             }while (sub_raca > 3 || sub_raca < 1);

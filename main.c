@@ -35,16 +35,16 @@ int atributo[6],
 
 int classe_jogador = 0,
     pontos_de_vida;
+    
 //Protótipos de função
 int calculoDeAtributos (void);
+void escolhaRaca (void);
 void escolhaClasse(void);
 void calculaPontosDeVida(void);
 
 //Função Principal
 int main () {
   srand(time(NULL)); //Define a "semente" para gerar um número aleatório
- 
-  int raca_jogador, sub_raca;
   const char *atributos_nomes[] = {"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"}; 
     
   //Inicializacao dos valores de atributo e modificadores respectivos
@@ -72,75 +72,17 @@ int main () {
     }
     //end debug
 
-  do{ 
-    printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n 6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling\n");
-    printf ("Digite o numero referente a sua raca: \n");
-    scanf ("%d",&raca_jogador);
- 
-    switch (raca_jogador){
-      case 1: 
-            printf ("voce e um anao agora");
-            break;
-      case 2: 
-            printf ("voce e um elfo agora");
-            break;
-      case 3: 
-            printf ("voce e um halfling agora");
-            break;
-      case 4: 
-           printf ("voce e um humano agora");
-           break;
-      case 5: 
-            printf ("voce e um draconato agora");
-            break;
-      case 6: 
-            printf ("voce e um gnomo agora");
-            break;
-      case 7: 
-            printf ("voce e um meio-elfo agora");
-            break;
-      case 8: 
-            printf ("voce e um meio-orc agora");
-            break;
-      case 9: 
-            printf ("voce e um tiefling agora");
-            break;
-      default:
-            printf ("\nDigite o numero correto.");
-            break;
-  }
-   } while (raca_jogador > 9 || raca_jogador < 1);
-
-  if (raca_jogador == 1){
-    do {
-    printf ("\n 1. anao da colina (+1 de sabedoria); \n 2. anao da montanha (+2 de forca)");
-    printf ("\nDigite o numero referente a uma das sub racas ");
-      scanf ("%d",&sub_raca);
-      switch (sub_raca){
-        case 1: 
-        printf ("voce e um anao da colina ");
-        break;
-        case 2: 
-        printf ("voce e um anao da montanha");
-        break;
-        default:
-        printf("\nDigite o numero correto");
-      }
-      }while (sub_raca > 2 || sub_raca < 1);
-  }
-
-    
-  
+   escolhaRaca ();
    escolhaClasse();
    calculaPontosDeVida(); 
    //init debug
    printf("numero da classe: %d \n", classe_jogador);
    printf("pontos de vida: %d \n", pontos_de_vida);
    //end debug
-
+   
   return 0;  
   } //end main
-
+ 
 // Simula um dado de 6 lados
 int calculoDeAtributos() {
     int habs[4]; //salva em cada índice 4 resultados de jogadas do dado
@@ -158,7 +100,7 @@ int calculoDeAtributos() {
     
     printf("\n");
     //end debug
-    
+
     for (int i = 0; i < 4; i++) {
         hab_t += habs[i];        
         if( habs[i] < min) {
@@ -215,3 +157,160 @@ void calculaPontosDeVida() {
             break;
   }
 } 
+
+//escolha de racas
+void escolhaRaca () {
+  int atributos, clock , raca, sub_raca, raca_jogador;
+ do{ 
+    printf ("\n 1. anao\n 2. elfo \n 3. halfling \n 4. humano \n 5. draconato \n");
+    printf ("6. gnomo \n 7. meio-elfo \n 8. meio-orc \n 9. tiefling \n");
+    printf ("Digite o numero referente a sua raca: \n");
+    scanf ("%d",&raca_jogador);
+    system("cls");
+    switch (raca_jogador){
+      case 1: //anao
+            atributo[constituicao] = atributo[constituicao] + 2;
+            //deslocamento = 7.5;
+       do{
+            printf ("\n 1. anao da colina (+1 de sabedoria); \n 2. anao da montanha (+2 de forca)");
+            printf ("\nDigite o numero referente a uma das sub racas ");
+            scanf ("%d",&sub_raca);
+            if (sub_raca == 1){
+               atributo[sabedoria] = atributo[sabedoria] + 1;
+            } else
+              if  (sub_raca == 2) {
+                atributo[forca] = atributo[forca] + 2;
+              } else {
+                printf ("/n digite novamente");
+              }
+          }while (sub_raca > 2 || sub_raca < 1);  
+            break;
+      case 2: //elfo
+            atributo[destreza] + 2;
+            //deslocamento == 9;
+           do {
+            printf ("\n Escolha uma sub raca \n 1.Alto Elfo: +1 de inteligencia \n 2.Elfo da Floresta: +1 de Sabedoria, deslocamento passa a ser 10,5m \n 3.Elfo Negro: +1 de Carisma \n");
+            scanf ("%d", &sub_raca);
+              switch (sub_raca){
+                  case 1:
+                  atributo[inteligencia] = atributo[inteligencia] + 1;
+                  break;
+
+                  case 2:
+                  atributo[sabedoria] = atributo[sabedoria] + 1;
+                  //deslocamento == 10.5;
+                  break;
+
+                  case 3:
+                  atributo[carisma] = atributo[carisma] + 1;
+                  break;
+
+                  default:
+                  printf ("digite novamente");
+                  break;
+            };
+             }while (sub_raca > 3 || sub_raca < 1);
+
+            break;
+      case 3: //halfling
+            atributo[destreza] + 2;
+            //deslocamento 7.5
+
+             do{
+            printf ("\n 1. Pes leves: +1 de carisma; \n 2.Robusto: +1 de constituiçao");
+            printf ("\nDigite o numero referente a um das sub racas ");
+            scanf ("%d",&sub_raca);
+            if (sub_raca == 1){
+               atributo[carisma] = atributo[carisma] + 1;
+            } else
+              if  (sub_raca == 2) {
+                atributo[constituicao] = atributo[constituicao]  + 1;
+              } else {
+                printf ("/n digite novamente");
+              }
+          }while (sub_raca > 2 || sub_raca < 1);  
+            
+            break;
+      case 4: //humano
+           
+           atributo[forca] =        atributo[forca] + 1;    
+           atributo[destreza] =     atributo[destreza] + 1;    
+           atributo[constituicao] = atributo[constituicao] + 1; 
+           atributo[inteligencia] = atributo[inteligencia] + 1;
+           atributo[sabedoria] =    atributo[sabedoria] + 1; 
+           atributo[carisma] =      atributo[carisma] + 1;
+          //deslocamento 9;
+
+           break;
+      case 5: //draconato
+           atributo[forca] = atributo[forca]  + 2;
+           atributo[carisma] = atributo[carisma] + 1;
+           //deslocamento == 9;
+
+            break;
+      case 6: //gnomo 
+            atributo[inteligencia] = atributo[inteligencia] + 2;
+            //deslocamento == 7.5
+            
+          do{
+            printf ("\n 1. Gnomo da floresta ; \n 2. (subraca2)");
+            printf ("\nDigite o numero referente a um das sub racas ");
+            scanf ("%d",&sub_raca);
+            if (sub_raca == 1){
+               atributo[destreza] = atributo[destreza] + 1;
+            } else
+              if  (sub_raca == 2) {
+                atributo[constituicao] = atributo[constituicao] + 1;
+              } else {
+                printf ("/n digite novamente");
+              }
+          }while (sub_raca > 2 || sub_raca < 1);
+            break;
+      case 7: //meio-elfo
+            atributo[carisma] = atributo[carisma] + 2;
+            //deslocamento 9m; 
+           do{
+            printf ("\n Escolha duas habilidades para adcionar mais 1 ponto: \n");
+            scanf ("%d",&atributos)
+                switch (atributos){
+
+                  case 1:
+                    atributo[forca] =                atributo[forca] + 1;
+                  break;
+                  case 2:
+                    atributo[destreza] =          atributo[destreza] + 1;
+                  break;
+                  case 3:
+                    atributo[constituicao] =  atributo[constituicao] + 1;
+                  break;
+                  case 4:
+                    atributo[inteligencia] = atributo[inteligencia]  + 1;
+                  break;
+                  case 5:
+                    atributo[sabedoria] =        atributo[sabedoria] + 1;
+                  break;
+                  case 6:
+                    atributo[carisma] =            atributo[carisma] + 1;
+                  break;
+                  default:
+                  printf ("\n Digite novamente \n");
+                }
+              clock++;
+            } while (atributos > 6 || atributos < 1 && clock != 2 );    
+            break;
+      case 8: //meio-orc 
+            atributo[forca] = atributo[forca] + 2;
+            atributo[constituicao] = atributo[constituicao] + 1;
+            //deslocamento 9;
+            break;
+      case 9: //tiefling
+            atributo[inteligencia] = atributo[inteligencia] + 1;
+            atributo[carisma] = atributo[carisma] + 2;
+            break;
+      default:
+            printf ("\nDigite o numero correto.");
+            break;
+  }
+   } while (raca_jogador > 9 || raca_jogador < 1);
+
+}
