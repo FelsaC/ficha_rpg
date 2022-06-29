@@ -20,7 +20,7 @@ Relacionadas as Classes {
 }
 
 Outros {
-	bonus de proficiencia: 9:22 - 9:47
+	bonus de proficiencia: 9:22 - 9:47 DOING
 	antecedentes (tem muita coisa): 14:44 - 20:43
 	classe de armadura (depende de equipamentos): 26:04 - 26:32
 	iniciativa: 26:32 - 27:07   
