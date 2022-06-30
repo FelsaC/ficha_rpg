@@ -12,7 +12,7 @@ Relacionadas as Classes {
 	escolha de classe. DONE
 	testes de resistenca: 9:47 - 11:48 DONE
 	perícias: 11:48 - 14:44 
-	proficiencias: 21:50 - 22:31
+	proficiencias: 21:50 - 22:31 doing
 	Habilidades: 22:31 - 24:41
 	equipamentos: 24:41 - 26:04
 	pontos de vida: 27:07 - 27:51 DONE
