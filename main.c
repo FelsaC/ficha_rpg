@@ -31,14 +31,18 @@
 //Variáveis Globais
 int atributo[6],
     modificador[6],
-    teste_de_resistencia[6];
+    teste_de_resistencia[6],
+    pericias_valores[16];
 
 int classe_jogador = 0,
     pontos_de_vida;
+
 //Protótipos de função
 int calculoDeAtributos (void);
 void escolhaClasse(void);
 void calculaPontosDeVida(void);
+void pericias(int classe, int raca);
+
 
 //Função Principal
 int main () {
@@ -156,3 +160,75 @@ void calculaPontosDeVida() {
             break;
   }
 } 
+
+void pericias(int classe, int raca) {
+    //tabelas de pericias primeiro item 
+    int proficiencias[] = {};
+    char *Barbaro[] = {"Lidar com Animais", "Atletismo","intimidação", };  
+    /*
+    Barbaro(2 entre Adestrar Animais, Atletismo, Intimidação, Natureza, Percepcao, e Sobrevivencia)
+    Bardo(3 quaisquer)
+    Bruxo(2 entre Arcanismo, Enganacao, historia, Investigacao, Natureza e Religiao) 
+    Clérigo(2 de historia, Intuicao, medicina, persuasao, religiao)
+    Druida( 2 dentre arcanismo, adestrar, animais, intuicao, medicina, percepcao, religiao, sobrevivencia)
+    Feiticeiro( 2 entrea arcanismo, enganacao, intuicao, intimidacao, persuacao, religiao )
+    Guerreiro(2 entre acrobacia, adestrar animais, atletismo, historia, intuicao, intimidacao, percepcao, sobrevivencia)
+    Ladino (4 entre acrobacia, atletismo, atuacao, enganacao, furtividade, intimidacao, intuicao, investigacao, percepcao, persuasao, presdigitacao)
+    Mago(2 arcanismo, historia, intuicao, investigacao, madicina, religiao)
+    Monge(2 entre acrobacia, atletismo, furtividade, historia, intuicao, religiao)
+    Paladino(2 atletismo, intuicao, intimidacao, medicina, persuasao, religiao)
+    Patrulheiro(2 adestrar animais, atletismo, Furtividade, Intuicao, Investigacao, Natureza, percepcao e sobrevivencia)
+    */
+    /*
+    Anao
+    Elfo
+    Halfling
+    Humano( 1 pericia a escolha )
+    Draconato
+    Gnomo
+    Meio-Elfo(2 pericia a escolha)
+    Meio-Orc
+    Tiefling
+    */
+
+    switch (classe) {
+        
+    }
+
+    char *pericias_nomes[] = {
+        "Acrobacia",         //0
+        "Arcanismo",         //1
+        "Atletismo",         //2
+        "Atuacao",           //3
+        "Engancao",          //4
+        "Furtividade",       //5
+        "Historia",          //6
+        "intimidação",       //7
+        "Lidar com Animais", //8
+        "Medicina",          //9
+        "Natureza",          //10
+        "Percepcao",         //11
+        "Persuasao",         //12
+        "Presdigitacao",     //13
+        "Religiao",          //14
+        "Sobrevivencia"      //15
+    };
+    //"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"
+
+       pericias_valores[0]  = modificador[1]; //"Acrobacia"        
+       pericias_valores[1]  = modificador[3]; //"Arcanismo"                  
+       pericias_valores[2]  = modificador[0]; //"Atletismo"              
+       pericias_valores[3]  = modificador[5]; //"Atuacao"               
+       pericias_valores[4]  = modificador[5]; //"Engancao"           
+       pericias_valores[5]  = modificador[1]; //"Furtividade"      
+       pericias_valores[6]  = modificador[3]; //"Historia"         
+       pericias_valores[7]  = modificador[5]; //"intimidação"      
+       pericias_valores[8]  = modificador[4]; //"Lidar com Animais"
+       pericias_valores[9]  = modificador[4]; //"Medicina"         
+       pericias_valores[10] = modificador[3]; //"Natureza"         
+       pericias_valores[11] = modificador[4]; //"Percepcao"        
+       pericias_valores[12] = modificador[5]; //"Persuasao"        
+       pericias_valores[13] = modificador[1]; //"Presdigitacao"    
+       pericias_valores[14] = modificador[3]; //"Religiao"         
+       pericias_valores[15] = modificador[4]; //"Sobrevivencia"     
+}
