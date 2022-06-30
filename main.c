@@ -31,7 +31,8 @@
 //Variáveis Globais
 int atributo[6],
     modificador[6],
-    teste_de_resistencia[6];
+    teste_de_resistencia[6],
+    pericias[18];
 
 int classe_jogador = 0,
     pontos_de_vida;
@@ -40,21 +41,27 @@ int calculoDeAtributos (void);
 void escolhaClasse(void);
 void calculaPontosDeVida(void);
 void calculoTesteDeResistencia(void);
+void inicializaPericias(int atributo);
 
 //Função Principal
 int main () {
   srand(time(NULL)); //Define a "semente" para gerar um número aleatório
  
-  int raca_jogador, sub_raca;
+  int raca_jogador, sub_raca, init, end;
   const char *atributos_nomes[] = {"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"}; 
-    
+  const char *pericias_nomes[] = {"atletismo", "acrobacia", "futividade", "prestidigitacao", "arcanismo", 
+  "historia", "investigacao", "natureza", "religiao", "adestrar_animais", "intuicao", "medicina", "percepcao", 
+  "sobrevivencia", "atuacao", "enganacao", "intimidacao", "persuasao"};  
+  
   //Inicializacao dos valores de atributo e modificadores respectivos
     for(int i = 0; i < 6; i++){
         atributo[i] = calculoDeAtributos(); // Calcula cada atributo
         modificador[i] = floor ((atributo[i] - (double)10)/2 ); //Calcula cada modificador baseado nos atributos 
         teste_de_resistencia[i] = modificador[i]; //Valores iniciais do teste de resistencia baseado modificador
+        inicializaPericias(i);
+        
     }
-    
+
     //init debug
     printf("\n");
     
@@ -67,6 +74,14 @@ int main () {
     for(int i = 0; i < 6; i++){
         printf ("modificador de  %s = (%d)\n", atributos_nomes[i], modificador[i]);
     }
+
+    printf("\n");
+
+     for(int i = 0; i < 18; i++){
+        printf("%s = %d \n", pericias_nomes[i], pericias[i]);
+    }
+ 
+    printf("\n");
     
     for(int i = 0; i < 6; i++){
         printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
@@ -76,10 +91,16 @@ int main () {
    escolhaClasse();
    calculaPontosDeVida(); 
    calculoTesteDeResistencia();
+   
+   printf("\n");
+
    //init debug
    for(int i = 0; i < 6; i++){
         printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
     }
+
+   printf("\n");
+
    printf("numero da classe: %d \n", classe_jogador);
    printf("pontos de vida: %d \n", pontos_de_vida);
    //end debug
@@ -203,5 +224,47 @@ void calculoTesteDeResistencia() {
       teste_de_resistencia[destreza] += 2;
       teste_de_resistencia[inteligencia] += 2;
       break;
+  }
+}
+
+void inicializaPericias(int atributo) {
+  int init, end;
+  switch(atributo){
+    case forca:
+      init = 0;
+      end  = 1;
+      break;
+      
+    case destreza:
+      init = 1;
+      end  = 4;
+      break;
+      
+    case inteligencia:
+      init = 4;
+      end  = 9;
+      break;
+      
+    case sabedoria:
+      init = 9;
+      end  = 15;
+      break;
+      
+    case carisma:
+       init = 15;
+       end  = 18;
+      break;
+   
+    defaut:
+      break;
+    }
+
+  for(int j = init; j < end; j++){
+    if(atributo == constituicao){
+      break;
+    }
+
+    pericias[j] = modificador[atributo];
+  
   }
 }
