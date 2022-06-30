@@ -6,7 +6,7 @@
 #include <math.h>
 
 //Macros
-//macros para atributos
+//constantes atributos
 #define forca          0
 #define destreza       1 
 #define constituicao   2  
@@ -14,7 +14,7 @@
 #define sabedoria      4 
 #define carisma        5
 
-//macros para classes
+//constantes classes
 #define barbaro      1
 #define bardo        2
 #define bruxo        3
@@ -28,11 +28,30 @@
 #define paladino     11
 #define patrulheiro  12
 
+//constantes classes
+#define atletismo        0 
+#define acrobacia        1
+#define furtividade      2
+#define prestidigitacao  3
+#define arcanismo        4  
+#define historia         5
+#define investigacao     6
+#define natureza         7
+#define religiao         8 
+#define adestrar_animais 9
+#define intuicao         10
+#define medicina         11
+#define percepcao        12
+#define sobrevivencia    13
+#define atuacao          14
+#define enganacao        15
+#define intimidacao      16
+#define persuasao        17
 //Variáveis Globais
 int atributo[6],
     modificador[6],
     teste_de_resistencia[6],
-    pericias_valores[16];
+    pericias_valores[18];
 
 int classe_jogador = 0,
     pontos_de_vida;
@@ -42,7 +61,7 @@ int calculoDeAtributos (void);
 void escolhaClasse(void);
 void calculaPontosDeVida(void);
 void pericias(int classe, int raca);
-
+void initPericias();
 
 //Função Principal
 int main () {
@@ -75,7 +94,7 @@ int main () {
         printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
     }
     //end debug
-
+   initPericias();
    escolhaClasse();
    calculaPontosDeVida(); 
    //init debug
@@ -195,40 +214,44 @@ void pericias(int classe, int raca) {
         
     }
 
-    char *pericias_nomes[] = {
-        "Acrobacia",         //0
-        "Arcanismo",         //1
-        "Atletismo",         //2
-        "Atuacao",           //3
-        "Engancao",          //4
-        "Furtividade",       //5
-        "Historia",          //6
-        "intimidação",       //7
-        "Lidar com Animais", //8
-        "Medicina",          //9
-        "Natureza",          //10
-        "Percepcao",         //11
-        "Persuasao",         //12
-        "Presdigitacao",     //13
-        "Religiao",          //14
-        "Sobrevivencia"      //15
-    };
-    //"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"
-
-       pericias_valores[0]  = modificador[1]; //"Acrobacia"        
-       pericias_valores[1]  = modificador[3]; //"Arcanismo"                  
-       pericias_valores[2]  = modificador[0]; //"Atletismo"              
-       pericias_valores[3]  = modificador[5]; //"Atuacao"               
-       pericias_valores[4]  = modificador[5]; //"Engancao"           
-       pericias_valores[5]  = modificador[1]; //"Furtividade"      
-       pericias_valores[6]  = modificador[3]; //"Historia"         
-       pericias_valores[7]  = modificador[5]; //"intimidação"      
-       pericias_valores[8]  = modificador[4]; //"Lidar com Animais"
-       pericias_valores[9]  = modificador[4]; //"Medicina"         
-       pericias_valores[10] = modificador[3]; //"Natureza"         
-       pericias_valores[11] = modificador[4]; //"Percepcao"        
-       pericias_valores[12] = modificador[5]; //"Persuasao"        
-       pericias_valores[13] = modificador[1]; //"Presdigitacao"    
-       pericias_valores[14] = modificador[3]; //"Religiao"         
-       pericias_valores[15] = modificador[4]; //"Sobrevivencia"     
+    const char *pericias_nomes[] = {
+      "atletismo",        //0 
+      "acrobacia",        //1
+      "furtividade",      //2
+      "prestidigitacao",  //3
+      "arcanismo",        //4  
+      "historia",         //5
+      "investigacao",     //6
+      "natureza",         //7
+      "religiao",         //8
+      "adestrar_animais", //9
+      "intuicao",         //10
+      "medicina",         //11
+      "percepcao",        //12
+      "sobrevivencia",    //13
+      "atuacao",          //14
+      "enganacao",        //15
+      "intimidacao",      //16
+      "persuasao"         //17
+  };
+}
+void initPericias() {
+  pericias_valores[atletismo]         =   modificador[forca];
+  pericias_valores[acrobacia]         =   modificador[destreza];
+  pericias_valores[furtividade]       =   modificador[destreza];
+  pericias_valores[prestidigitacao]   =   modificador[destreza];
+  pericias_valores[arcanismo]         =   modificador[inteligencia];
+  pericias_valores[historia]          =   modificador[inteligencia];
+  pericias_valores[investigacao]      =   modificador[inteligencia];
+  pericias_valores[natureza]          =   modificador[inteligencia];
+  pericias_valores[religiao]          =   modificador[inteligencia];
+  pericias_valores[adestrar_animais]  =   modificador[sabedoria];
+  pericias_valores[intuicao]          =   modificador[sabedoria];
+  pericias_valores[medicina]          =   modificador[sabedoria];
+  pericias_valores[percepcao]         =   modificador[sabedoria];
+  pericias_valores[sobrevivencia]     =   modificador[sabedoria];
+  pericias_valores[atuacao]           =   modificador[carisma];
+  pericias_valores[enganacao]         =   modificador[carisma];
+  pericias_valores[intimidacao]       =   modificador[carisma];
+  pericias_valores[persuasao]         =   modificador[carisma];
 }
