@@ -34,54 +34,33 @@ int atributo[6],
     teste_de_resistencia[6];
 
 int classe_jogador = 0,
-    pontos_de_vida;
+    pontos_de_vida,
+    iniciativa;
+
+//vetores de strings
+const char *atributos_nomes[] = {"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"};
+
 //Protótipos de função
 int calculoDeAtributos (void);
 void escolhaClasse(void);
 void calculaPontosDeVida(void);
 void calculoTesteDeResistencia(void);
+void initValoresIniciais(void);
 
 //Função Principal
 int main () {
-  srand(time(NULL)); //Define a "semente" para gerar um número aleatório
- 
-  int raca_jogador, sub_raca;
-  const char *atributos_nomes[] = {"forca", "destreza", "constituicao", "inteligencia", "sabedoria", "carisma"}; 
-    
-  //Inicializacao dos valores de atributo e modificadores respectivos
-    for(int i = 0; i < 6; i++){
-        atributo[i] = calculoDeAtributos(); // Calcula cada atributo
-        modificador[i] = floor ((atributo[i] - (double)10)/2 ); //Calcula cada modificador baseado nos atributos 
-        teste_de_resistencia[i] = modificador[i]; //Valores iniciais do teste de resistencia baseado modificador
-    }
-    
-    //init debug
-    printf("\n");
-    
-    for(int i = 0; i < 6; i++){
-        printf("%s = %d \n", atributos_nomes[i] ,atributo[i]);
-    }
+    srand(time(NULL)); //Define a "semente" para gerar um número aleatório
+   
+    int raca_jogador, sub_raca;   
+   
+    initValoresIniciais();
+    escolhaClasse();
+    calculaPontosDeVida(); 
+    calculoTesteDeResistencia();
+       
+    printf("numero da classe: %d \n", classe_jogador);
+    printf("pontos de vida: %d \n", pontos_de_vida);
 
-    printf("\n");
-
-    for(int i = 0; i < 6; i++){
-        printf ("modificador de  %s = (%d)\n", atributos_nomes[i], modificador[i]);
-    }
-    
-    for(int i = 0; i < 6; i++){
-        printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
-    }
-    //end debug
-
-   escolhaClasse();
-   calculaPontosDeVida(); 
-   calculoTesteDeResistencia();
-   //init debug
-   for(int i = 0; i < 6; i++){
-        printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
-    }
-   printf("numero da classe: %d \n", classe_jogador);
-   printf("pontos de vida: %d \n", pontos_de_vida);
    //end debug
 
   return 0;  
@@ -124,6 +103,7 @@ void escolhaClasse() {
         printf("\n7.Guerreiro \n8.Ladino \n9.Mago \n10.Monge \n11.Paladio \n12.Patrulheito");
         printf("\n\nEscolha a sua classe de acordo com numero respectivo: ");
         scanf("%d", &classe_jogador);
+        printf("\n");
         
         if(classe_jogador < 0 || classe_jogador > 12) {
           printf("\nOpcao invalida! Pressione enter para tentar novamente");
@@ -204,4 +184,48 @@ void calculoTesteDeResistencia() {
       teste_de_resistencia[inteligencia] += 2;
       break;
   }
+}
+
+void initValoresIniciais() {
+  //Inicializacao dos valores de atributo, modificadores e teste de resistência
+  for(int i = 0; i < 6; i++) {
+        atributo[i] = calculoDeAtributos(); // Calcula cada atributo
+        modificador[i] = floor ((atributo[i] - (double)10)/2 ); //Calcula cada modificador baseado nos atributos 
+        teste_de_resistencia[i] = modificador[i]; //Valores iniciais do teste de resistencia baseado modificador
+  }
+
+  //Inicialização da iniciativa
+  iniciativa = modificador[destreza];
+
+  //inicialização das pericias
+  //initPericias();
+
+   //init debug
+    for(int i = 0; i < 6; i++){
+        printf("%s = %d \n", atributos_nomes[i] ,atributo[i]);
+    }
+
+    printf("\n");
+
+    for(int i = 0; i < 6; i++){
+        printf ("modificador de  %s = (%d)\n", atributos_nomes[i], modificador[i]);
+    }
+    
+    printf("\n");
+
+    for(int i = 0; i < 6; i++){
+        printf("Teste de resistencia atribut: %s = %d \n", atributos_nomes[i], teste_de_resistencia[i]);
+    }
+    
+    /*
+    for(int i = 0; i < 18; i++){
+      printa as pericias
+    }
+    */
+    
+    printf("\n");
+
+    printf("Iniciativa = %d \n", iniciativa);
+
+    //end debug
 }
