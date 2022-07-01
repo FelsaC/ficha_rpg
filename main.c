@@ -423,7 +423,7 @@ void escolhaSubRaca(){
             scanf ("%d",&sub_raca);
             break;
       
-      default:
+      //default:
       //pensar em algo para as racas que nao possuem subracas
        
   }
