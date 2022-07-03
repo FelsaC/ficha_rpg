@@ -29,7 +29,7 @@ Outros {
 }
 
 Fora do vídeo {
-	Desing da tela de inicio;
+	Desing da tela de inicio; DOING
 	Desing do output. DOING
 }
 
